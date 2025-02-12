@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Plataforma de Estudos</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Plataforma de Estudos</h1>
+    </header>
+
+    <main id="conteudo">
+      <!-- Seção de informações do aluno -->
+      <section id="info-aluno" class="section-container">
+        <h2>Informações do Estudante</h2>
+        <form id="info-form">
+          <div class="form-group">
+            <label for="nome-aluno">Nome:</label>
+            <input type="text" id="nome-aluno" required>
+          </div>
+          <div class="form-group">
+            <label for="curso-desejado">Curso Desejado:</label>
+            <input type="text" id="curso-desejado">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <select id="estado" required></select>
+          </div>
+          <div class="form-group">
+            <label for="vestibular">Vestibular:</label>
+            <select id="vestibular" required>
+              <option value="">Selecione...</option>
+              <option value="ENEM">ENEM</option>
+              <option value="FUVEST">FUVEST</option>
+              <option value="UNICAMP">UNICAMP</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Salvar</button>
+        </form>
+      </section>
+
+      <!-- Seção 1: Perfil Acadêmico -->
+      <section id="perfil-academico" class="perfil-academico">
+        <h2>Perfil Acadêmico</h2>
+        
+        <div class="tags-section">
+          <div class="tag-priority-table">
+            <table class="priority-table">
+              <thead>
+                <tr>
+                  <th>Prioridade</th>
+                  <th>
+                    <div class="column-header">
+                      <span>Disciplinas</span>
+                      <button class="add-tag-btn" data-tipo="disciplina">+</button>
+                      <div class="tag-dropdown" id="disciplinas-dropdown"></div>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="column-header">
+                      <span>Pontos a Trabalhar</span>
+                      <button class="add-tag-btn" data-tipo="ponto">+</button>
+                      <div class="tag-dropdown" id="pontos-dropdown"></div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="priority-row" data-priority="alta">
+                  <td class="priority-cell">Alta</td>
+                  <td class="tags-cell" id="disciplinas-alta"></td>
+                  <td class="tags-cell" id="pontos-alta"></td>
+                </tr>
+                <tr class="priority-row" data-priority="media">
+                  <td class="priority-cell">Média</td>
+                  <td class="tags-cell" id="disciplinas-media"></td>
+                  <td class="tags-cell" id="pontos-media"></td>
+                </tr>
+                <tr class="priority-row" data-priority="baixa">
+                  <td class="priority-cell">Baixa</td>
+                  <td class="tags-cell" id="disciplinas-baixa"></td>
+                  <td class="tags-cell" id="pontos-baixa"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção 2: Notas ENEM -->
+      <section id="notas-enem" class="section-container">
+        <h2>Notas ENEM</h2>
+        <form id="notas-form">
+          <div class="form-group">
+            <label for="ano">Ano:</label>
+            <select id="ano" required>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="matematica">Matemática:</label>
+              <input type="number" id="matematica" min="0" max="1000">
+            </div>
+            <div class="form-group">
+              <label for="humanas">Humanas:</label>
+              <input type="number" id="humanas" min="0" max="1000">
+            </div>
+            <div class="form-group">
+              <label for="naturezas">Naturezas:</label>
+              <input type="number" id="naturezas" min="0" max="1000">
+            </div>
+            <div class="form-group">
+              <label for="linguagens">Linguagens:</label>
+              <input type="number" id="linguagens" min="0" max="1000">
+            </div>
+            <div class="form-group">
+              <label for="redacao">Redação:</label>
+              <input type="number" id="redacao" min="0" max="1000">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">Adicionar Notas</button>
+        </form>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Ano</th>
+                <th>Matemática</th>
+                <th>Humanas</th>
+                <th>Naturezas</th>
+                <th>Linguagens</th>
+                <th>Redação</th>
+                <th>Média Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2024</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>2023</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>2021</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>0</td>
+              </tr>
+              <tr class="media-row">
+                <td>MÉDIA</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Seção 3: Calendário Semanal -->
+      <section id="calendario-semanal" class="section-container">
+        <h2>Calendário Semanal</h2>
+        <div class="calendario-semanal-container">
+          <!-- Formulário de Evento -->
+          <div id="evento-form" class="evento-form">
+            <h3>Adicionar Evento</h3>
+            <form id="novo-evento-form">
+              <div class="form-group">
+                <label for="evento-titulo">Título</label>
+                <input type="text" id="evento-titulo" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="evento-dia">Dia</label>
+                  <select id="evento-dia" required>
+                    <option value="segunda">Segunda</option>
+                    <option value="terca">Terça</option>
+                    <option value="quarta">Quarta</option>
+                    <option value="quinta">Quinta</option>
+                    <option value="sexta">Sexta</option>
+                    <option value="sabado">Sábado</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="evento-periodo">Período</label>
+                  <select id="evento-periodo" required>
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="evento-inicio">Horário Inicial</label>
+                  <input type="time" id="evento-inicio" required>
+                </div>
+                <div class="form-group">
+                  <label for="evento-fim">Horário Final</label>
+                  <input type="time" id="evento-fim" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="evento-categoria">Categoria</label>
+                <select id="evento-categoria" required>
+                  <option value="estudos">Estudos</option>
+                  <option value="lazer">Lazer</option>
+                  <option value="sono">Sono</option>
+                  <option value="locomocao">Locomoção</option>
+                  <option value="pessoal">Pessoal</option>
+                </select>
+              </div>
+              <!-- Campos específicos para categoria Estudos -->
+              <div id="campos-estudos" style="display: none;">
+                <div class="form-group">
+                  <label for="evento-questoes">Número de Questões</label>
+                  <input type="number" id="evento-questoes" min="0">
+                </div>
+                <div class="form-group">
+                  <label for="evento-area">Área do Conhecimento</label>
+                  <select id="evento-area">
+                    <option value="naturezas">Naturezas</option>
+                    <option value="matematica">Matemática</option>
+                    <option value="linguagens">Linguagens</option>
+                    <option value="humanas">Humanas</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary">Adicionar Evento</button>
+            </form>
+          </div>
+
+          <!-- Calendário -->
+          <div class="calendario-header">
+            <button class="btn-calendario btn-adicionar">+ Adicionar Evento</button>
+            <div class="filtros-calendario">
+              <button class="btn-calendario btn-filtro" data-categoria="todos">Todos</button>
+              <button class="btn-calendario btn-filtro" data-categoria="estudos">Estudos</button>
+              <button class="btn-calendario btn-filtro" data-categoria="lazer">Lazer</button>
+              <button class="btn-calendario btn-filtro" data-categoria="sono">Sono</button>
+              <button class="btn-calendario btn-filtro" data-categoria="locomocao">Locomoção</button>
+              <button class="btn-calendario btn-filtro" data-categoria="pessoal">Pessoal</button>
+            </div>
+          </div>
+
+          <!-- Grid do Calendário -->
+          <div class="calendario-grid">
+            <!-- Cabeçalhos dos dias da semana -->
+            <div class="dia-header">Segunda</div>
+            <div class="dia-header">Terça</div>
+            <div class="dia-header">Quarta</div>
+            <div class="dia-header">Quinta</div>
+            <div class="dia-header">Sexta</div>
+            <div class="dia-header">Sábado</div>
+            <!-- Manhã -->
+            <div class="periodo-header">Manhã</div>
+            <div class="celula-evento" data-dia="segunda" data-periodo="manha">
+              <div class="evento" data-categoria="Pessoal">
+                <span class="titulo-evento">Aula de Inglês</span>
+                <span class="detalhes-evento">15 questões</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="terca" data-periodo="manha">
+              <div class="evento" data-categoria="Estudos">
+                <span class="titulo-evento">Academia</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="quarta" data-periodo="manha">
+              <div class="evento" data-categoria="Pessoal">
+                <span class="titulo-evento">Trocar lâmpadas</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="quinta" data-periodo="manha">
+              <div class="evento" data-categoria="Pessoal">
+                <span class="titulo-evento">Aula de Inglês</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="sexta" data-periodo="manha"></div>
+            <div class="celula-evento" data-dia="sabado" data-periodo="manha"></div>
+            <!-- Tarde -->
+            <div class="periodo-header">Tarde</div>
+            <div class="celula-evento" data-dia="segunda" data-periodo="tarde"></div>
+            <div class="celula-evento" data-dia="terca" data-periodo="tarde">
+              <div class="evento" data-categoria="Profissional">
+                <span class="titulo-evento">Reunião de Projetos</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="quarta" data-periodo="tarde"></div>
+            <div class="celula-evento" data-dia="quinta" data-periodo="tarde">
+              <div class="evento" data-categoria="Profissional">
+                <span class="titulo-evento">Reunião 1 a 1</span>
+              </div>
+            </div>
+            <div class="celula-evento" data-dia="sexta" data-periodo="tarde"></div>
+            <div class="celula-evento" data-dia="sabado" data-periodo="tarde"></div>
+            <!-- Noite -->
+            <div class="periodo-header">Noite</div>
+            <div class="celula-evento" data-dia="segunda" data-periodo="noite"></div>
+            <div class="celula-evento" data-dia="terca" data-periodo="noite"></div>
+            <div class="celula-evento" data-dia="quarta" data-periodo="noite"></div>
+            <div class="celula-evento" data-dia="quinta" data-periodo="noite"></div>
+            <div class="celula-evento" data-dia="sexta" data-periodo="noite"></div>
+            <div class="celula-evento" data-dia="sabado" data-periodo="noite"></div>
+          </div>
+
+          <!-- Resumo diário -->
+          <div class="resumo-diario">
+            <h3>Tempo de Estudo por Dia</h3>
+            <div class="resumo-grid">
+              <div class="resumo-dia">
+                <h4>Segunda</h4>
+                <p class="tempo-estudo">0h</p>
+              </div>
+              <!-- Repete para outros dias -->
+            </div>
+          </div>
+        </div>
+        <!-- Detalhes do Evento (oculto por padrão) -->
+        <div id="detalhes-evento" class="detalhes-evento-container">
+          <h2>Aula de Inglês</h2>
+          <p><strong>Questões:</strong> 15</p>
+          <p><strong>Dia da Semana:</strong> Segunda</p>
+          <p><strong>Período:</strong> Manhã</p>
+          <p>
+            <strong>Categoria:</strong>
+            <span class="tag tag-pessoal">Pessoal</span>
+          </p>
+          <p><strong>Hora de Início:</strong> 00:00</p>
+          <p><strong>Hora de Término:</strong> 01:00</p>
+          <p><strong>Duração Total:</strong> Vazio</p>
+          <p><strong>Última edição:</strong> 11/02/2025 23:23</p>
+          <p><strong>Fórmula:</strong> Vazio</p>
+          <p><strong>Comentários:</strong></p>
+          <textarea placeholder="Adicionar um comentário..."></textarea>
+        </div>
+      </section>
+
+      <!-- Seção de Cadastro/Listagem de Alunos -->
+      <section id="alunos" class="section-container">
+        <h2>Cadastro de Alunos</h2>
+        <form id="aluno-form">
+          <input type="text" id="aluno-nome" placeholder="Nome" required>
+          <input type="email" id="aluno-email" placeholder="Email" required>
+          <button type="submit">Cadastrar</button>
+        </form>
+        <div id="lista-alunos"></div>
+      </section>
+
+      <!-- Container para mensagens de erro -->
+      <div id="error-message" class="error"></div>
+    </main>
+
+    <footer>
+      <!-- Rodapé (se necessário) -->
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>

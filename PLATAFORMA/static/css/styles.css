@@ -1,0 +1,1000 @@
+/* Reset básico e variáveis */
+:root {
+    --primary-color: #4CAF50; /* Cor primária (ex: verde) */
+    --secondary-color: #f0f0f0; /* Cor secundária (ex: cinza claro) */
+    --text-color: #333; /* Cor do texto principal */
+    --border-color: #ddd; /* Cor das bordas */
+    --sidebar-color: #f8f8f8;
+    --tag-sociologia-bg: #f0d0d0; /* Exemplo de cor de fundo para tag */
+    --tag-sociologia-color: #a04040; /* Exemplo de cor de texto para tag */
+
+    /* Defina cores para outras tags */
+    --tag-matematica-bg: #d0d0f0;
+    --tag-matematica-color: #4040a0;
+    --tag-fisica-bg: #d0f0d0;
+    --tag-fisica-color: #40a040;
+     --tag-quimica-bg: #d0f0d0;
+    --tag-quimica-color: #40a080;
+    --tag-identificacao-bg: #e0e0e0;
+    --tag-identificacao-color: #666;
+    --tag-gestao-bg: #ffffcc;
+    --tag-gestao-color: #999933;
+    --tag-familiaridade-bg: #ccffff;
+    --tag-familiaridade-color: #339999;
+
+      --tag-pessoal-bg: lightblue;
+    --tag-pessoal-color: darkblue;
+    --tag-profissional-bg: lightcoral;
+    --tag-profissional-color: darkred;
+    --tag-estudos-bg: lightgreen;
+    --tag-estudos-color: darkgreen;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte principal */
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos gerais para as seções */
+.section-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-container {
+    overflow-x: auto; /* Permite rolagem horizontal em tabelas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--sidebar-color);
+    font-weight: 500;
+}
+
+/* Tags */
+.tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    margin: 4px;
+    cursor: move;
+    user-select: none;
+    transition: all 0.2s ease;
+    background: #f1f1f1;
+    border: 1px solid transparent;
+    max-width: 100%;
+    animation: tagAppear 0.3s ease;
+}
+
+@keyframes tagAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tag.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.tags-wrapper.dragover {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 2px dashed #4CAF50;
+}
+
+/* Cores específicas para as tags (ajuste conforme necessário) */
+.tag-sociologia {
+    background-color: var(--tag-sociologia-bg);
+    color: var(--tag-sociologia-color);
+}
+
+.tag-matematica {
+    background-color: var(--tag-matematica-bg);
+    color: var(--tag-matematica-color);
+}
+
+.tag-fisica{
+  background-color: var(--tag-fisica-bg);
+    color: var(--tag-fisica-color);
+}
+
+.tag-quimica {
+    background-color: var(--tag-quimica-bg);
+    color: var(--tag-quimica-color);
+}
+
+.tag-identificacao {
+    background-color: var(--tag-identificacao-bg);
+    color: var(--tag-identificacao-color);
+}
+.tag-gestao {
+    background-color: var(--tag-gestao-bg);
+    color: var(--tag-gestao-color);
+}
+.tag-familiaridade {
+    background-color: var(--tag-familiaridade-bg);
+    color: var(--tag-familiaridade-color);
+}
+
+.tag-pessoal {
+    background-color: var(--tag-pessoal-bg);
+    color: var(--tag-pessoal-color);
+}
+.tag-profissional {
+    background-color: var(--tag-profissional-bg);
+    color: var(--tag-profissional-color);
+}
+
+.tag-estudos{
+   background-color: var(--tag-estudos-bg);
+    color: var(--tag-estudos-color);
+}
+
+/* Estilos para a linha de média na tabela de notas */
+.media-row {
+    font-weight: bold;
+    background-color: var(--sidebar-color);
+}
+
+/* Calendário Semanal */
+.calendario-semanal-container {
+  width: 100%;
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-calendario {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btn-calendario.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 colunas para os dias da semana */
+     grid-template-rows: auto; /* Linhas se ajustam ao conteúdo */
+    gap: 1px;
+    border: 1px solid var(--border-color);
+     border-radius: 8px;
+    overflow: hidden; /* Para os cantos arredondados */
+}
+
+.dia-header, .periodo-header {
+    background-color: var(--sidebar-color);
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+.periodo-header{
+    writing-mode: vertical-rl; /* Texto vertical */
+    text-orientation: mixed;
+    grid-row: span 1; /* Ocupa x linhas */
+     border-right: 1px solid var(--border-color);
+
+}
+
+.celula-evento {
+    min-height: 80px; /* Altura mínima para as células */
+    padding: 8px;
+    border-right: 1px solid var(--border-color);
+     border-bottom: 1px solid var(--border-color);
+    background-color: white;
+    position: relative; /* Para posicionar os eventos */
+
+}
+.celula-evento:nth-child(7n) { /* Última célula de cada linha (sábado)*/
+  border-right: none;
+}
+
+.celula-evento:empty {
+  background-color: #fafafa; /* Cor diferente se estiver vazia */
+}
+
+.evento {
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 4px; /* Espaço entre eventos */
+    font-size: 0.9rem;
+    cursor: pointer;
+    overflow: hidden; /* Esconde conteúdo que ultrapassa */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+    white-space: nowrap; /* Mantém o texto em uma linha */
+
+}
+
+
+/* Estilos para os detalhes do evento */
+
+.detalhes-evento-container{
+  display: none; /* Oculta por padrão */
+  position: fixed; /* Fixo na tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  max-width: 80%; /* Largura máxima */
+  max-height: 80vh; /* Altura máxima (viewport height) */
+  overflow-y: auto; /* Rolagem se o conteúdo for muito grande */
+}
+
+.detalhes-evento-container.active {
+    display: block; /* Mostra quando a classe 'active' é adicionada */
+}
+.detalhes-evento-container h2 {
+  margin-top: 0; /* Remove margem superior do título */
+}
+
+.detalhes-evento-container textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-top: 8px;
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+/* Adicione estes estilos ao seu arquivo CSS existente */
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tags-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.tag-group {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    min-height: 50px;
+    padding: 0.5rem;
+    border: 1px dashed #ddd;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    background: #e9ecef;
+    border-radius: 4px;
+    cursor: move;
+}
+
+.tag-remove {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.tag-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-add {
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Estilos do Perfil Acadêmico */
+.perfil-academico {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin: 20px;
+}
+
+/* Container de Tags */
+.tags-section {
+    margin-bottom: 24px;
+}
+
+.tags-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.tags-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.tag-category {
+    background: white;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.tag-category h3 {
+    font-size: 1rem;
+    color: #37352f;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px dashed #e0e0e0;
+}
+
+/* Tags */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    margin: 2px;
+}
+
+.tag:hover {
+    filter: brightness(0.95);
+}
+
+.tag.selected {
+    border: 2px solid var(--primary-color);
+}
+
+/* Cores específicas para cada tipo de tag */
+.tag-disciplina {
+    background: #f1f1f1;
+    color: #37352f;
+}
+
+.tag-ponto {
+    background: #e8f0fe;
+    color: #174ea6;
+}
+
+/* Tabela Notion-like */
+.notion-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.notion-table th {
+    background: #fafafa;
+    font-weight: 500;
+    color: #37352f;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.notion-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #37352f;
+    min-height: 40px;
+}
+
+.notion-table tr:hover {
+    background: #f5f5f5;
+}
+
+.tags-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-height: 32px;
+    padding: 4px 0;
+}
+
+/* Prioridade indicadores */
+.prioridade-alta {
+    color: #eb5757;
+    font-weight: 500;
+}
+
+.prioridade-media {
+    color: #f2994a;
+    font-weight: 500;
+}
+
+.prioridade-baixa {
+    color: #219653;
+    font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .tags-container {
+        flex-direction: column;
+    }
+
+    .notion-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .tag-category {
+        padding: 12px;
+    }
+
+    .tags-wrapper {
+        min-height: 60px;
+    }
+
+    .tag {
+        width: calc(50% - 8px);
+        margin: 4px;
+    }
+
+    .calendario-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tag {
+        width: 100%;
+    }
+
+    .tag-dropdown {
+        max-width: 100%;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* Estilos para o dropdown de tags */
+.tag-dropdown {
+    position: absolute;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 200px;
+}
+
+.tag-dropdown.active {
+    display: block;
+}
+
+.tag-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tag-dropdown-item:hover {
+    background: #f5f5f5;
+}
+
+/* Atualização dos estilos das tags */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    margin: 4px;
+    cursor: default;
+    user-select: none;
+    transition: all 0.2s ease;
+    background: #f1f1f1;
+    border: 1px solid transparent;
+    max-width: 100%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.tag-wrapper {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.tag-text {
+    max-width: calc(100% - 24px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tag-remove {
+    margin-left: 6px;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.tag-remove:hover {
+    background: rgba(0,0,0,0.2);
+}
+
+.tags-container {
+    position: relative;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tags-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+    padding: 12px;
+    background: #fafafa;
+    border-radius: 6px;
+    border: 1px dashed #e0e0e0;
+}
+
+/* Botão de adicionar tag */
+.add-tag-btn {
+    padding: 4px 12px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.add-tag-btn:hover {
+    background: #45a049;
+}
+
+/* Adicionar após os estilos existentes */
+.tag-content {
+    position: relative;
+    margin-top: 12px;
+}
+
+.tags-wrapper {
+    min-height: 40px;
+    padding: 8px;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px dashed #e0e0e0;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background: #f1f1f1;
+    border: 1px solid transparent;
+    margin: 0;
+    user-select: none;
+}
+
+.tag.selected {
+    background: #e3f2fd;
+    border-color: #2196f3;
+}
+
+.tag-remove {
+    margin-left: 6px;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.tag-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.tag-dropdown.active {
+    display: block;
+}
+
+.tag-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.tag-dropdown-item:hover {
+    background: #f5f5f5;
+}
+
+.add-tag-btn {
+    padding: 6px 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.add-tag-btn:hover {
+    background: #45a049;
+}
+
+.tag-content {
+    position: relative;
+    margin-top: 12px;
+}
+
+.tags-wrapper {
+    min-height: 40px;
+    padding: 8px;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px dashed #e0e0e0;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.add-tag-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.tag-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    min-width: 200px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.tag-dropdown.active {
+    display: block;
+}
+
+.tag-dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+}
+
+.tag-dropdown-item:hover {
+    background-color: var(--secondary-color);
+}
+
+.tag-category {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Feedback visual */
+.tag-remove:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+}
+
+.tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tag.selected {
+    border-color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* ...existing code... */
+
+.tag-priority-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.priority-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.priority-table th {
+    background: #f8f9fa;
+    padding: 16px;
+    text-align: left;
+    font-weight: 500;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.priority-table td {
+    padding: 16px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.column-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priority-cell {
+    font-weight: 500;
+    width: 100px;
+}
+
+.priority-row[data-priority="alta"] .priority-cell {
+    color: #dc3545;
+}
+
+.priority-row[data-priority="media"] .priority-cell {
+    color: #ffc107;
+}
+
+.priority-row[data-priority="baixa"] .priority-cell {
+    color: #28a745;
+}
+
+.tags-cell {
+    min-height: 40px;
+    padding: 8px;
+    background: #fafafa;
+    border-radius: 4px;
+}
+
+.tags-cell.dragover {
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px dashed #4CAF50;
+}
+
+/* ...existing code... */
+
+.evento-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+}
+
+.evento-form.active {
+    display: block;
+}
+
+.filtros-calendario {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.btn-filtro {
+    opacity: 0.6;
+}
+
+.btn-filtro.active {
+    opacity: 1;
+}
+
+.resumo-diario {
+    margin-top: 20px;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.resumo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 12px;
+}
+
+.resumo-dia {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.tempo-estudo {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin: 8px 0 0;
+}
+
+/* Estilos para eventos por categoria */
+.evento[data-categoria="estudos"] { background-color: #e3f2fd; }
+.evento[data-categoria="lazer"] { background-color: #fff3e0; }
+.evento[data-categoria="sono"] { background-color: #e8eaf6; }
+.evento[data-categoria="locomocao"] { background-color: #f3e5f5; }
+.evento[data-categoria="pessoal"] { background-color: #e8f5e9; }
+
+/* ...existing code... */
